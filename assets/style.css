@@ -1,0 +1,62 @@
+/* Hide Streamlit default header and sidebar */
+header {
+    visibility: hidden;
+}
+[data-testid="stSidebar"] {
+    display: none;
+}
+button[kind="header"] {
+    display: none;
+}
+
+/* Fixed header – uses safe area for notched devices */
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #0b3c5d;
+    color: white;
+    text-align: center;
+    z-index: 1000;
+    /* keep padding similar to inline version */
+    padding: 5px;
+    /* Add safe‑area padding (falls back to 10px) */
+    padding-top: env(safe-area-inset-top, 10px);
+    box-sizing: border-box;
+}
+.fixed-header h1 {
+    margin: 0;
+    font-size: 50px;
+    line-height: 1.1;       /* from inline – gives a bit more height */
+    margin-bottom: 5px;     /* reduce space below main title */
+}
+.fixed-header h2 {
+    margin: 0;
+    font-size: 22px;        /* larger, more visible (external) */
+    font-weight: 400;       /* slightly bolder */
+    line-height: 1.1;       /* match h1 line‑height for consistency */
+}
+h1, h2 {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.fixed-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #0b3c5d;
+    color: white;
+    text-align: center;
+    padding: 8px;
+    z-index: 1000;
+    font-size: 15px;
+}
+.content {
+    /* Adjust margin‑top to match the header's total height.
+       Header has 5px padding + safe‑area top (10px) + 5px bottom padding ≈ 20px,
+       plus the heading heights (about 55px + 24px) ≈ 100px. 120px is safe. */
+    margin-top: 120px;
+    margin-bottom: 60px;
+}
